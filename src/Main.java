@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class UnitConverter {
-    public static final Map<String, String> MEASUREMENT;
+    public static final HashMap<java.lang.String, java.lang.String> MEASUREMENT;
     static {
         MEASUREMENT = new HashMap<String, String>();
         MEASUREMENT.put("temp", "temperature");
@@ -13,6 +13,7 @@ public class UnitConverter {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+
         boolean flag = true;
 
         intro();
@@ -43,11 +44,10 @@ public class UnitConverter {
         System.out.println("units are displayed in this format: name (user input).");
         System.out.println();
         }
-        public static Converter getMeasurementConverter(Scanner input){
+        public static Converter2 getMeasurementConverter(Scanner input){
         String type = " ";
         ConverterFactory converterFactory = new ConverterFactory();
 
-        System.out.println();
             System.out.println("The types of measurement that can be used are listed below");
             System.out.println("      - Temperature (temp)");
             System.out.println("      - Length (len");
@@ -62,10 +62,10 @@ public class UnitConverter {
                 System.out.print("What type of measurement do you want to use?");
                 type = input.nextLine();
             }
-            return converterFactory.getConverter(MEASUREMENT.get(type));
+            return converterFactory.getConverter2(MEASUREMENT.get(type));
         }
         public static void convertingProcess(Scanner input){
-        Converter converter = getMeasurementConverter(input);
+        Converter2 converter = getMeasurementConverter(input);
         boolean temp = true;
 
         while (temp){
@@ -89,7 +89,7 @@ public class UnitConverter {
             }
 
             if (reply.toLowerCase().startsWith("n")){
-                temp = false
+                temp = false;
             }
         }
         }
